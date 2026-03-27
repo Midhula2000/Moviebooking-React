@@ -1,16 +1,59 @@
-// import React from 'react';
-// import Navbar from './components/Navbar';
+import React from 'react';
 
-// function AboutUs() {
-//   return (
-//     <div>
-//       <div>
-//       <Navbar />
-//       </div>
-//       <p>MovieTickets.com is an online movie ticketing website founded by AMC Theatres and Hollywood.com in 2000; CBS Corporation, Famous Players, and National Amusements all came on board prior to launch;[1] and it is now a subsidiary of Fandango Media. MovieTickets.com provides movie times for all theaters, and online ticket purchasing for all Clearview Cinemas and National Amusements theaters, among other smaller chains; such as Mann Theatres in Los Angeles. In 2010, MovieTickets.com sold over 16 million tickets for over 200 exhibitors, with 14,000 screens.[2]</p>
-//       <p>In 2001, Moviefone.com and Movietickets.com entered in a partnership in 2001 that crosslinked their ticketing offerings. In 2004, MovieTickets.com became the exclusive online ticket vendor for Moviefone.com.[3] Then, in mid-2005, MovieTickets.com established a ticket distribution relationship with the consignment ticket reseller PrintTixUSA, adding 20 movie exhibition companies to its ranks and boosting the total number of screens serviced nationwide to more than 10,000.[4] Since then, however, MovieTickets.com had lost ground, losing sole rights to the AMC chain and Moviefone's telephone arm to rival Fandango.</p>
-//     </div>
-//   );
-// }
+import { Link } from 'react-router-dom';
+import './aboutus.css'; // See the CSS below
 
-// export default AboutUs;
+const AboutUs = () => {
+    return (
+        <div className="about-page-wrapper">
+          <Link 
+  to="/" 
+  className="home-btn btn-outline-primary btn-sm rounded-pill d-inline-flex align-items-center px-3"
+>
+<i className="bi bi-info-circle-fill me-2"></i>
+  Home
+</Link >
+          <div className="about-content">
+            
+            {/* Hero Section */}
+            <div className="about-hero d-flex align-items-center justify-content-center text-center">
+                <div className="container">
+                    <h1 className="display-3 fw-bold text-white mb-3">REDEFINING YOUR <span className="text-primary">CINEMA</span> EXPERIENCE</h1>
+                    <p className="lead text-light mx-auto" style={{ maxWidth: '700px' }}>
+                        From the latest blockbusters to timeless indie classics, we bring the magic of the big screen right to your fingertips.
+                    </p>
+                </div>
+            </div>
+
+            <div className="container py-5">
+                {/* Story Section */}
+                <div className="row align-items-center mb-5">
+                    <div className="col-lg-6">
+                        <h2 className="text-white fw-bold mb-4">Our Story</h2>
+                        <p className="text-secondary">
+                            Founded in 2024, our platform was born out of a simple passion: making movie-going seamless. We noticed that booking a seat shouldn't be harder than watching the movie itself. 
+                        </p>
+                        <p className="text-secondary">
+                            Today, we serve thousands of cinephiles daily, providing real-time seat selection, instant digital tickets, and curated movie lists across various genres like Comedy, Romance, and Science Fiction.
+                        </p>
+                    </div>
+                    <div className="col-lg-6">
+                        <div className="about-image-card shadow-lg">
+                            <img 
+                                src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                alt="Cinema Hall" 
+                                className="img-fluid rounded"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <hr className="border-secondary my-5" />
+
+               </div>
+        </div>
+        </div>
+    );
+};
+
+export default AboutUs;

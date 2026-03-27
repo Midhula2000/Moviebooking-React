@@ -27,12 +27,6 @@ function Navbar() {
 
                   
 
-                    <li className="nav-item">
-                        <NavLink to={"/aboutus"} className="nav-link">
-                            About us
-                        </NavLink>
-                    </li>
-
                     {/* Hide My Bookings on Home and Login page */}
                     {route !== "/" && route !== "/userlogin" && (
                         <li className="nav-item">
@@ -40,7 +34,22 @@ function Navbar() {
                                 My Bookings
                             </NavLink>
                         </li>
+                        
+
                     )}
+                    {/* Hide My Bookings on Home and Login page */}
+                    {route !== "/" && route !== "/userlogin" && (
+                    <li className="nav-item">
+                        <NavLink to={"/usermovielist"} className="nav-link">
+                            Movies
+                        </NavLink>
+                    </li>
+                    )}
+                    <li className="nav-item">
+                        <NavLink to={"/aboutus"} className="nav-link">
+                            About us
+                        </NavLink>
+                    </li>
 
                     {/* Hide Login button on Home and Login page */}
                     {!token && route !== "/" && route !== "/userlogin" && (

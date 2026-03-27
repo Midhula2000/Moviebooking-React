@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
 import UserCheckAuth from "./auth/UserCheckAuth";
-import './userbookinglist.css'; // Using consistent styles
+import './userbookinglist.css';
 
 function ListBooking() {
     const [booking, setBooking] = useState([]);
@@ -10,19 +10,23 @@ function ListBooking() {
     const [selectedBookingId, setSelectedBookingId] = useState(null);
     const token = localStorage.getItem('token');
 
-    const fetchBookings = () => {
+    // ✅ Define function OUTSIDE useEffect
+    const fetchBookings = useCallback(() => {
         axios.get(`http://127.0.0.1:8000/booking/userlist_booking/`, {
             headers: { Authorization: `Token ${token}` }
-        }).then((response) => {
+        })
+        .then((response) => {
             setBooking(response.data);
-        }).catch((error) => {
+        })
+        .catch((error) => {
             console.error("Error fetching bookings:", error);
         });
-    };
+    }, [token]);
 
+    // ✅ useEffect only calls the function
     useEffect(() => {
         fetchBookings();
-    }, [token]);
+    }, [fetchBookings]);
 
     const openModal = (id) => {
         setSelectedBookingId(id);
@@ -32,11 +36,13 @@ function ListBooking() {
     const handleCancel = () => {
         axios.delete(`http://127.0.0.1:8000/booking/delete_booking/${selectedBookingId}/`, {
             headers: { Authorization: `Token ${token}` }
-        }).then(() => {
+        })
+        .then(() => {
             setShowModal(false);
-            fetchBookings(); // Refresh the list
+            fetchBookings(); // ✅ works perfectly now
             alert("Booking cancelled successfully");
-        }).catch((error) => {
+        })
+        .catch((error) => {
             console.error("Error cancelling booking:", error);
         });
     };
@@ -52,7 +58,7 @@ function ListBooking() {
                         booking.map((item) => (
                             <div className="col-lg-8 mb-4" key={item.id}>
                                 <div className="ticket-card d-flex flex-column flex-md-row">
-                                    {/* Left Side: Movie Poster */}
+
                                     <div className="ticket-img-wrapper">
                                         <img
                                             src={`http://127.0.0.1:8000/${item.movie.image_url}`}
@@ -60,7 +66,6 @@ function ListBooking() {
                                         />
                                     </div>
 
-                                    {/* Middle Section: Booking Details */}
                                     <div className="ticket-info p-4 flex-grow-1">
                                         <div className="d-flex justify-content-between align-items-start">
                                             <div>
@@ -85,7 +90,6 @@ function ListBooking() {
                                         </div>
                                     </div>
 
-                                    {/* Right Side: Action (Cancellation) */}
                                     <div className="ticket-action d-flex align-items-center justify-content-center p-3">
                                         <button className="btn btn-outline-danger btn-sm" onClick={() => openModal(item.id)}>
                                             Cancel
@@ -102,7 +106,6 @@ function ListBooking() {
                 </div>
             </div>
 
-            {/* Dark Styled Modal */}
             {showModal && (
                 <div className="modal show d-block" style={{ backgroundColor: "rgba(0,0,0,0.8)" }}>
                     <div className="modal-dialog modal-dialog-centered">
@@ -112,7 +115,7 @@ function ListBooking() {
                                 <button type="button" className="btn-close btn-close-white" onClick={() => setShowModal(false)}></button>
                             </div>
                             <div className="modal-body text-center py-4">
-                                <p className="lead">Are you sure you want to cancel your ticket for this movie?</p>
+                                <p className="lead">Are you sure you want to cancel your ticket?</p>
                                 <p className="text-danger small">This action cannot be undone.</p>
                             </div>
                             <div className="modal-footer border-secondary">

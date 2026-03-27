@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import "./App.css";
-import { Carousel, Col, Container, Row } from 'react-bootstrap';
+import { Carousel, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 

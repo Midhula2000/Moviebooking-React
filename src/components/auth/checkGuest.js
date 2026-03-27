@@ -10,7 +10,7 @@ export const checkGuest = (Component) =>{
             if(!user){
                 navigate('/adminlogin');
             }
-        },[user])
+        },[user,navigate])
         return  <Component {...props}/>;
     }
     return Wrapper;

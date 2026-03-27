@@ -17,7 +17,7 @@ import AdminMovieDetails from "./components/Admin/Moviedetail";
 import Userlist from "./components/Admin/Userlist";
 import Viewbookings from "./components/Admin/Viewbookings";
 import ListBooking from "./components/Userbookinglist";
-
+import Aboutus from "./components/aboutus";
 
 const router = createBrowserRouter([
     { path: '/', element: <App/> },
@@ -39,6 +39,7 @@ const router = createBrowserRouter([
     {path : '/bookingform/:id', element: <BookingForm/> },
     {path : '/Moviedetail/:id/',element: <MovieDetails/>},
     {path: '/userbookings/:id', element: <ListBooking/>},
+    {path: '/aboutus', element: <Aboutus/>},
    
    
     // { path : 'aboutus', element: <AboutUs/>},

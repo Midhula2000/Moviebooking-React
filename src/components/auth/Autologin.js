@@ -4,7 +4,7 @@ import { setUserFromLocalStorage } from "../../store/authSlice";
 
 function AutoLogin(props){
     const dispatch = useDispatch();
-    useEffect(()=>{dispatch(setUserFromLocalStorage())},[])
+    useEffect(()=>{dispatch(setUserFromLocalStorage())},[dispatch])
     return props.children
 }
 

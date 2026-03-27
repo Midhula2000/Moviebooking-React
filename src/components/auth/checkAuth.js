@@ -16,7 +16,7 @@ export const checkAuth = (Component) => {
                 navigate("/adminlogin", { state: { from: location } });
             }
 
-        },[]);
+        },[navigate,location]);
 
         return <Component {...props}/>;
 

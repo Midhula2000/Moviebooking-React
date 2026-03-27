@@ -13,10 +13,7 @@ function UserLogin() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
-    const handleSignUp = () => {
-      navigate("/SignUp");
-    };
-
+   
     
     function attemptLogin() {
         axios.post(`http://127.0.0.1:8000/booking/login`,{

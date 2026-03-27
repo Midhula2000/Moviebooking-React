@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Adminnavbar from "./Adminnavbar";
-import { useSelector } from "react-redux";
+
 import checkAuth from "../auth/checkAuth";
 
 function AddMovies() { // Pass token as a prop
