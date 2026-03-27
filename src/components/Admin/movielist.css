@@ -1,0 +1,53 @@
+/* Container for the table */
+.admin-table-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden; /* Keeps the table corners rounded */
+}
+
+/* Table Specifics */
+.table-dark {
+    --bs-table-bg: transparent; /* Makes the table pick up the container's glass effect */
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #0d6efd;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-table-img {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.movie-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.movie-link:hover {
+    color: #0d6efd;
+}
+
+/* Row Hover Effect */
+.table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Modal styling tweak */
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}

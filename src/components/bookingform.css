@@ -1,0 +1,27 @@
+/* Custom Form Inputs for Dark Theme */
+.custom-input {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    padding: 12px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+    color: black !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: #0d6efd !important;
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.25) !important;
+}
+
+/* Fix for the Date picker icon in dark mode */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Button glow effect */
+.btn-primary {
+    background: linear-gradient(45deg, #0d6efd, #004bb5);
+    border: none;
+}

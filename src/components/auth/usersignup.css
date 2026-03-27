@@ -1,0 +1,59 @@
+/* Background wrapper for the whole page */
+.ott-page-wrapper {
+  background: radial-gradient(circle at center, #232526 0%, #000000 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+/* The Card Styling */
+.ott-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* The Hover Effect */
+.ott-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(229, 9, 20, 0.2); /* Subtle glow matching the button */
+  border-color: rgba(229, 9, 20, 0.5) !important;
+}
+
+.ott-title {
+  color: #e50914; /* Streaming red accent */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Custom Input Styling */
+.ott-input {
+  background-color: #333 !important;
+  border: none !important;
+  color: white !important;
+  padding: 12px !important;
+}
+
+.ott-input:focus {
+  background-color: #444 !important;
+  box-shadow: 0 0 0 2px #e50914 !important;
+}
+
+/* OTT Button Style */
+.btn-ott-primary {
+  background-color: #e50914;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+
+.btn-ott-primary:hover {
+  background-color: #ff0f1a;
+  color: white;
+}

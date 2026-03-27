@@ -1,0 +1,56 @@
+/* Ticket Card Styling */
+.ticket-card {
+    background: #1a1d29;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.ticket-card:hover {
+    transform: scale(1.01);
+    border-color: rgba(13, 110, 253, 0.5);
+}
+
+/* Image section of the ticket */
+.ticket-img-wrapper {
+    width: 150px;
+    min-height: 150px;
+}
+
+.ticket-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Vertical dotted line effect (like a perforated ticket) */
+.ticket-info {
+    border-left: 2px dashed rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+/* Action button area */
+.ticket-action {
+    background: rgba(255, 255, 255, 0.02);
+    min-width: 100px;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Modal styling */
+.modal-content {
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .ticket-img-wrapper {
+        width: 100%;
+        height: 200px;
+    }
+    .ticket-info {
+        border-left: none;
+        border-top: 2px dashed rgba(255, 255, 255, 0.1);
+    }
+}

@@ -1,0 +1,75 @@
+
+
+/* 1. The Container: Keeps the carousel height consistent */
+.carousel-img-wrapper {
+  height: 350px; /* Force a standard height for desktop */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #000; /* Black background for any loading gaps */
+}
+
+/* 2. The Image: Fills the container perfectly without squishing */
+.carousel-img-wrapper img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* This is the secret! It crops instead of stretching */
+  object-position: center 20%; /* Focuses a bit higher on the image (better for faces) */
+}
+
+/* 3. The Vignette: Darkens the image so text is readable */
+.carousel-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%),
+              linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 40%);
+}
+
+/* 4. Caption Styling */
+.custom-caption {
+  bottom: 15%;
+  left: 5%;
+  z-index: 10;
+}
+
+/* 5. Mobile Responsiveness */
+@media (max-width: 768px) {
+  .carousel-img-wrapper {
+    height: 300px; /* Shorter for mobile */
+  }
+  .custom-caption h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Movie Cards */
+.movie-card-v2 { cursor: pointer; transition: transform 0.3s ease; }
+.poster-container {
+  position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 2/3;
+}
+.poster-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.movie-card-v2:hover .poster-img { transform: scale(1.1); }
+.poster-hover-overlay {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.movie-card-v2:hover .poster-hover-overlay { opacity: 1; }
+.movie-card-v2:hover { transform: translateY(-8px); }
+
+/* AI Section */
+.ai-container { background: #1e1e1e; }
+.ai-icon-pulse {
+  font-size: 1.2rem; background: rgba(13,110,253,0.2);
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(13,110,253,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(13,110,253,0); }
+  100% { box-shadow: 0 0 0 0 rgba(13,110,253,0); }
+}
