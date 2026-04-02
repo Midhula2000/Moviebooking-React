@@ -4,6 +4,7 @@ import "./App.css";
 import { Carousel, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import UserCheckGuest from './components/auth/UserCheckGuest';
 
 function App() {
   const navigate = useNavigate();
@@ -153,4 +154,4 @@ function App() {
   );
 }
 
-export default App;
+export default UserCheckGuest(App);

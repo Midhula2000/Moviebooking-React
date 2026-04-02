@@ -1,9 +1,12 @@
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, useNavigate, useLocation} from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { removeUser } from "../store/authSlice";
 
 function Navbar() {
 
     const navigate = useNavigate();
     const location = useLocation();
+    const dispatch = useDispatch();
     const route = location.pathname;
 
     let userid = localStorage.getItem('user_id');
@@ -12,6 +15,8 @@ function Navbar() {
     function handlelogout(){
         localStorage.removeItem('token');
         localStorage.removeItem('user_id');
+        localStorage.removeItem('user');
+        dispatch(removeUser() );
         navigate("/userlogin");
     }
 

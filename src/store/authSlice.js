@@ -11,6 +11,8 @@ export const authSlice = createSlice({
         setUser: (state,action)=>{
             state.user = action.payload;
             window.localStorage.setItem('user',JSON.stringify(action.payload))
+            console.log("autologin");
+            
         },
         removeUser: (state)=>{
             state.user = null;

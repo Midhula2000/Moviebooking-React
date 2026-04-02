@@ -12,11 +12,14 @@ function ListBooking() {
 
     // ✅ Define function OUTSIDE useEffect
     const fetchBookings = useCallback(() => {
+        console.log("started");
+        
         axios.get(`http://127.0.0.1:8000/booking/userlist_booking/`, {
             headers: { Authorization: `Token ${token}` }
         })
         .then((response) => {
             setBooking(response.data);
+            console.log("Bookings fetched:", response.data);
         })
         .catch((error) => {
             console.error("Error fetching bookings:", error);

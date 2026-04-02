@@ -1,29 +1,27 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export const UserCheckAuth = (Component) => {
 
-    function Wrapper(props){
+  function Wrapper(props) {
 
-        const navigate = useNavigate();
-        const location = useLocation();
+    const user = useSelector((state) => state.auth.user);
+    const navigate = useNavigate();
+    const location = useLocation();
 
-        useEffect(()=>{
+    useEffect(() => {
+      if (!user) {
+        navigate("/userlogin", { state: { from: location } });
+      }
+    }, [user, navigate, location]);
 
-                  const token = localStorage.getItem('token');
-    console.log("Token in UserCheckAuth:", token); // Debugging log
-            if(!token){
-                navigate("/userlogin", { state: { from: location } });
-            }
+    if (!user) return null;
 
-        },[navigate,location]);
+    return <Component {...props} />;
+  }
 
-        return <Component {...props}/>;
-
-    }
-
-    return Wrapper;
-
-}
+  return Wrapper;
+};
 
 export default UserCheckAuth;

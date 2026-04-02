@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../store/authSlice";
 import Navbar from "../Navbar";
 import { useNavigate } from "react-router-dom";
+import UserCheckGuest from "./UserCheckGuest";
 
 function UserLogin() {
     var [username, setUsername] = useState('');
@@ -111,4 +112,4 @@ function UserLogin() {
 
 }
 
-export default UserLogin;
+export default UserCheckGuest(UserLogin);
