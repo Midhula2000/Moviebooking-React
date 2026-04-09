@@ -45,6 +45,7 @@ function BookingForm() {
 
             // ✅ Store booking ID
             setBookingId(response.data.id);
+            console.log('Booking created with ID:', response.data.id);
 
             // ✅ Show PayPal
             setShowPayment(true);
@@ -119,7 +120,7 @@ function BookingForm() {
                                                     Confirm & Pay
                                                 </button>
                                             ) : (
-                                                <PayPalPayment bookingId={bookingId} />
+                                                <PayPalPayment bookingId={bookingId} seats={seats}/>
                                             )}
 
                                         </div>
