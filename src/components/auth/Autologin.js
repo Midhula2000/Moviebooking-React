@@ -13,7 +13,7 @@ function AutoLogin({ children }) {
       console.log("ok");
       
     }
-  }, []);
+  }, [dispatch]);
 
   return children;
 }

@@ -11,7 +11,7 @@ export const UserCheckGuest = (Component) => {
       if (user) {
         navigate('/usermovielist'); // or your main page
       }
-    }, [user]);
+    }, [user, navigate]);
 
     return <Component {...props} />;
   }
